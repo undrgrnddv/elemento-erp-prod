@@ -1,0 +1,42 @@
+services:
+  elemento_erp_main:
+    image: odoo:18.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - vol_web_data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./myaddons:/mnt/extra-addons
+    environment:
+      - DB_HOST=db
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo
+    networks:
+      - er_erp_net
+
+    restart: always
+
+
+  db:    #Se tiene que llamar db o no jaa (entrypoint de contenedor)
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - vol_db_data:/var/lib/postgresql/data/pgdata
+    networks:
+      - er_erp_net
+    restart: always
+
+volumes:
+  vol_web_data:
+  vol_db_data:
+  
+
+networks:
+  er_erp_net:
+    name: er_erp_net  #Crea bridge network con este nombre

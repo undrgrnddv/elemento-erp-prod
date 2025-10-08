@@ -1,0 +1,134 @@
+server-ux
+    barcode_action
+    base_search_custom_field_filter
+    date_range
+    date_range_account
+    chained_swapper
+    server_action_mass_edit
+    server_action_mass_edit_onchange
+    template_content_swapper
+
+account-financial-reporting
+    account_financial_report
+    account_tax_balance
+    mis_template_financial_report
+    partner_statement
+
+account-financial-tools
+    account_dashboard_banner
+    account_dashboard_banner_mis_builder
+    account_fiscal_year
+    account_move_line_purchase_info
+    account_move_line_sale_info
+    account_move_name_sequence
+    account_move_post_date_user
+    account_move_print
+    product_category_tax
+
+account-analytic
+    stock_landed_costs_analytic
+    purchase_analytic
+
+sale-reporting
+
+server-tools
+
+Bank Payment - Alternative
+
+purchase-workflow
+    purchase_advance_payment
+    purchase_container
+    purchase_delivery_split_date
+    purchase_deposit
+    purchase_force_invoiced_quantity
+    purchase_last_price_info
+    purchase_lot
+    purchase_no_rfq
+    purchase_open_qty
+    purchase_order_line_stock_available
+    purchase_order_qty_change_no_recompute
+    purchase_order_type
+    purchase_order_type_dashboard
+    purchase_reception_status
+    purchase_reception_status_line
+    purchase_sale_link_by_origin
+    supplier_calendar
+
+stock-logistics-workflow
+    sale_stock_picking_invoice_link
+    purchase_stock_picking_invoice_link
+
+sale-workflow: https://github.com/OCA/sale-workflow.git
+    sale_substate
+
+sale-reporting: https://github.com/OCA/sale-reporting.git
+
+account-reconcile
+    Full
+
+project
+    project_purchase_link
+
+oca-addons-repo-template
+
+account-payment
+
+storage
+
+mail
+
+currency
+    currency_rate_update
+
+sign: https://github.com/OCA/sign.git
+    sign_oca
+
+stock-logistics-reporting: https://github.com/OCA/stock-logistics-reporting.git
+    stock_move_value_report
+
+server-brand: https://github.com/OCA/server-brand.git
+    disable_odoo_online
+    portal_odoo_debranding
+    remove_odoo_enterprise
+
+account-invoice-reporting: https://github.com/oca/account/invoice-reporting.git
+    partner_time_to_pay
+
+bank-statement-import: https://github.com/OCA/bank-statement-import.git
+    FULL
+
+automation: https://github.com/OCA/automation.git
+    automation_oca
+
+search-engine: https://github.com/OCA/search-engine.git
+
+bank-payment: https://github.com/OCA/bank-payment.git
+    account_invoice_select_for_payment
+    account_payment_order
+    account_payment_order_grouped_output
+    account_payment_partner
+    account_payment_purchase
+
+account-invoicing: https://github.com/OCA/account-invoicing.git
+    account_invoice_date_due
+    account_invoice_section_sale_order
+    account_invoice_show_currency_rate
+    account_invoice_supplier_ref_unique
+    account_receipt_journal
+    partner_invoicing_mode
+    sale_credit_note_reversal
+    stock_account_move_reset_to_draft
+
+server-tools: https://github.com/OCA/server-tools.git
+    attachment_queue
+    auto_backup
+    base_fontawesome
+    session_db
+
+partner-contact: https://github.com/OCA/partner-contact.git
+    partner_manual_rank
+    partner_external_map
+    base_partner_sequence
+    base_location_geonames_import
+    base_location
+    

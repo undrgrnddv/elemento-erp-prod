@@ -1,0 +1,88 @@
+-----------------------------------------------------------------------------------------
+INSTRUCTIVO PARA INSTANCIA ODOO CON DOCKER COMPOSE
+-----------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------
+Corriendo Odoo contenerizado con Docker Compose
+-----------------------------------------------------------------------------------------
+1. Revisa la configuracion del docker-compose.yml
+2. Ejecuta el comando docker compose up -d
+3. Listo!
+
+
+-----------------------------------------------------------------------------------------
+Comandos Docker:
+-----------------------------------------------------------------------------------------
+docker compose down #Detiene y borra los contenedores
+docker logs <container_name_or_id> #muestra logs de contenedor
+docker logs -ft 00_elemento_erp_local-elemento_erp_main-1
+
+
+-----------------------------------------------------------------------------------------
+Addons a instalar:
+-----------------------------------------------------------------------------------------
+1. account-financial-reporting
+2. mis-builder
+3. account-financial-tools
+    a. account_usability
+
+
+-----------------------------------------------------------------------------------------
+Cómo Instalar un Modulo Usando GitHub
+-----------------------------------------------------------------------------------------
+1. Obtén la URL del Repositorio ej. https://github.com/OCA/reporting-engine.git
+2. Navega al Directorio de Addons de tu Proyecto
+3. Clona el Repositorio
+    La sintaxis general es: 
+        git clone -b <nombre_de_la_rama> <url_del_repositorio> <nombre_de_la_carpeta_de_destino>
+    Ejemplo:
+        git clone -b 18.0 https://github.com/OCA/reporting-engine.git oca-reporting-engine
+4. Agrega la ruta al directorio del repositorio en tu archivo de configuración de Odoo addons_path (odoo.conf).
+5. Reiniciar el Servicio/Servidor de Odoo.
+6. Actualizar la Lista de Módulos de Odoo, con el Modo Desarrollador activado. 
+9. Busca los módulos que quieras instalar en el menú de aplicaciones y haz clic en Instalar.
+
+
+-----------------------------------------------------------------------------------------
+Directorios GitHub
+-----------------------------------------------------------------------------------------
+git clone -b 18.0 https://github.com/OCA/reporting-engine.git reporting-engine
+git clone -b 18.0 https://github.com/OCA/mis-builder.git mis-builder
+git clone -b 18.0 https://github.com/OCA/account-financial-tools.git account-financial-tools
+git clone -b 18.0 https://github.com/OCA/account-financial-reporting.git account-financial-reporting
+git clone -b 18.0 https://github.com/OCA/server-ux.git server-ux
+git clone -b 18.0 https://github.com/OCA/web.git web
+
+git clone -b 18.0 https://github.com/OCA/account-invoicing.git account-invoicing
+git clone -b 18.0 https://github.com/OCA/sign.git sign
+git clone -b 18.0 https://github.com/OCA/stock-logistics-warehouse.git stock-logistics-warehouse
+git clone -b 18.0 https://github.com/OCA/purchase.git purchase
+git clone -b 18.0 https://github.com/OCA/server-tools.git server-tools
+git clone -b 18.0 https://github.com/OCA/web-studio.git web-studio
+git clone -b 18.0 https://github.com/OCA/bank-statement-import.git bank-statement-import
+
+
+
+-----------------------------------------------------------------------------------------
+Crear una base de datos:
+-----------------------------------------------------------------------------------------
+Master Password: ELEMENTO3 
+Database Name: test01
+Email: c@elementorural.com
+Password: Cesar03
+
+Nota:
+- Al crear la base de datos, no mover configuracion de lenguaje, o pais.  
+
+
+-----------------------------------------------------------------------------------------
+Configuraciones iniciales:
+-----------------------------------------------------------------------------------------
+1. Activar Sales
+2. Activar Invoicing
+3. Activar Inventory
+4. Activar Purchase
+5. Activar Date Range
+6. Activar Report xls
+
