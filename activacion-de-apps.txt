@@ -12,7 +12,6 @@ myaddons/mis-builder/mis_builder
 myaddons/reporting-engine/report_xlsx
 myaddons/reporting-engine/report_xlsx_helper
 myaddons/reporting-engine/report_xml
-myaddons/reporting-engine/report_xml
 
 myaddons/server-ux/date_range
 myaddons/server-ux/date_range_account
