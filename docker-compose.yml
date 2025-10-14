@@ -1,10 +1,13 @@
+version: '3.7'
+
 services:
+  # ODOO SERVICE (ERP APPLICATION)
   elemento_erp_main:
     image: odoo:18.0
     depends_on:
       - db
-    ports:
-      - "8069:8069"
+    # *** IMPORTANT CHANGE: Removed ports mapping (8069:8069) ***
+    # Nginx will access Odoo internally via the service name: http://elemento_erp_main:8069
     volumes:
       - vol_web_data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -15,11 +18,10 @@ services:
       - DB_PASSWORD=odoo
     networks:
       - er_erp_net
-
     restart: always
 
-
-  db:    #Se tiene que llamar db o no jaa (entrypoint de contenedor)
+  # POSTGRESQL DATABASE SERVICE
+  db:
     image: postgres:15
     environment:
       - POSTGRES_DB=postgres
@@ -31,12 +33,31 @@ services:
     networks:
       - er_erp_net
     restart: always
+  
+  # NGINX REVERSE PROXY SERVICE (NEW)
+  nginx:
+    image: nginx:stable-alpine
+    container_name: odoo_nginx
+    ports:
+      # Map host ports 80/443 to the container
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Mount configuration file (required)
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      # Mount Certbot challenge files and certificates for SSL (required for Certbot setup later)
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - elemento_erp_main # Nginx must wait for Odoo to start
+    networks:
+      - er_erp_net
+    restart: always
 
 volumes:
   vol_web_data:
   vol_db_data:
-  
 
 networks:
   er_erp_net:
-    name: er_erp_net  #Crea bridge network con este nombre
+    name: er_erp_net # Crea bridge network con este nombre
