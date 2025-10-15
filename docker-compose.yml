@@ -37,7 +37,7 @@ services:
   # NGINX REVERSE PROXY SERVICE (NEW)
   nginx:
     image: nginx:stable-alpine
-    container_name: odoo_nginx
+    container_name: nginx
     ports:
       # Map host ports 80/443 to the container
       - "80:80"
