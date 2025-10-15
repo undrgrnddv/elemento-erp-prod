@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   # ODOO SERVICE (ERP APPLICATION)
   elemento_erp_main:
