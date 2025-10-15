@@ -6,8 +6,6 @@ services:
     image: odoo:18.0
     depends_on:
       - db
-    # *** IMPORTANT CHANGE: Removed ports mapping (8069:8069) ***
-    # Nginx will access Odoo internally via the service name: http://elemento_erp_main:8069
     volumes:
       - vol_web_data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -39,11 +37,9 @@ services:
     image: nginx:stable-alpine
     container_name: nginx
     ports:
-      # Map host ports 80/443 to the container
       - "80:80"
       #- "443:443"
     volumes:
-      # Mount configuration file (required)
       - ./nginx/nginx.conf:/etc/nginx/conf.d:ro
       # Map the local certificate files to the container's expected path
       - ./certs/server.crt:/etc/ssl/nginx/server.crt:ro
