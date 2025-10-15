@@ -22,7 +22,7 @@ services:
 
   # POSTGRESQL DATABASE SERVICE
   db:
-    image: postgres:15
+    image: postgres:15.5-alpine
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
@@ -50,6 +50,7 @@ services:
       - ./certs/server.key:/etc/ssl/nginx/server.key:ro
     depends_on:
       - elemento_erp_main # Nginx must wait for Odoo to start
+      - db # Nginx must wait for Postgres to start
     networks:
       - er_erp_net
     restart: always
