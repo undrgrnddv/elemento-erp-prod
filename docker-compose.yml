@@ -41,10 +41,10 @@ services:
     ports:
       # Map host ports 80/443 to the container
       - "80:80"
-      - "443:443"
+      #- "443:443"
     volumes:
       # Mount configuration file (required)
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/nginx.conf:/etc/nginx/conf.d:ro
       # Map the local certificate files to the container's expected path
       - ./certs/server.crt:/etc/ssl/nginx/server.crt:ro
       - ./certs/server.key:/etc/ssl/nginx/server.key:ro
