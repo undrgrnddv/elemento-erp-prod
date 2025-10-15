@@ -45,9 +45,9 @@ services:
     volumes:
       # Mount configuration file (required)
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      # Mount Certbot challenge files and certificates for SSL (required for Certbot setup later)
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
+      # Map the local certificate files to the container's expected path
+      - ./certs/server.crt:/etc/ssl/nginx/server.crt:ro
+      - ./certs/server.key:/etc/ssl/nginx/server.key:ro
     depends_on:
       - elemento_erp_main # Nginx must wait for Odoo to start
     networks:
